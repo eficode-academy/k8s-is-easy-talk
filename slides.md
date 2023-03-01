@@ -37,7 +37,9 @@ email: zander.havgaard(at)eficode.com
 
 ## Format
 
-Just a few slides, then demos!
+### Just a few slides, then demos!
+
+\*During the demos there will be a lot of text, you don't need to read it.
 
 <!--
 10 mins for intro slides
@@ -103,7 +105,7 @@ This process is continuous - this means that once we have defined our desired st
 
 ## Most importantly this means we tell Kubernetes _what we want_ and not _how to do it_.
 
-We interact with the Kubernetes through it's API - typically using the CLI `kubectl`
+We interact with Kubernetes through it's API - typically using the CLI `kubectl`
 
 (I have aliased k=kubectl in my demos)
 
@@ -237,8 +239,19 @@ The questions is how much do we want to automate?
 
 Feel free to reach out: zander.havgaard(at)eficode.com
 
-These slides and all files used are in a public git repo: https://github.com/eficode-academy/k8s-is-easy-talk
+These slides and all files used are on GitHub:
 
-## Questions?
+https://github.com/eficode-academy/k8s-is-easy-talk
+
+```
+ ____________
+< Questions? >
+ ------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
 
 <!-- Note to self: don't over explain -->
