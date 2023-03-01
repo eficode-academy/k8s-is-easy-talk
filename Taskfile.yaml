@@ -1,0 +1,29 @@
+---
+version: "3"
+
+tasks:
+  #
+  # argocd
+  #
+  argo-bootstrap:
+    cmds:
+      - bash scripts/install_argocd.sh
+
+  argo-print-initial-password:
+    cmds:
+      - kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+  argo-initial-password-to-clipboard:
+    cmds:
+      - kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d | xclip -i -selection c
+
+  argo-port-forward:
+    cmds:
+      - kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+  #
+  # karpenter
+  #
+  karpenter-bootstrap:
+    cmds:
+      - bash scripts/install_karpenter.sh
