@@ -9,6 +9,19 @@ paging: Slide %d / %d
 
 ## Let me show you how ...
 
+```
+
+
+ ______________
+< It's so easy >
+ --------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
 ---
 
 # $ whoami
@@ -211,13 +224,13 @@ Let's deploy `karpenter` and scale the cluster!
 
 ---
 
-# Cloud Native Scheduling Makes Things easy
+# Kubernetes makes (Cloud Native) scheduling easy:
 
-We can schedule all the things we need: containers, networking, infrastructure and more!
+Using the Kubernetes control-plane we can automate the scheduling, configuration and lifecycle of our containers, networking, infrastructure and more!
 
 Imagine doing everything I just showed you manually!
 
-The questions is how much do we want to automate?
+We can even use Kubernetes to schedule and control resources external to the cluster using things like `Crossplane`!
 
 ---
 
