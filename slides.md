@@ -12,9 +12,9 @@ paging: Slide %d / %d
 ```
 
 
- ______________
-< It's so easy >
- --------------
+ ___________________________
+< Scheduling should be easy >
+ ---------------------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -26,14 +26,16 @@ paging: Slide %d / %d
 
 # $ whoami
 
-## Zander Havgaard (@zanderhavgaard)
+## Zander Havgaard
 
 - DevOps Consultant @ Eficode Copenhagen
   - I work with: Cloud Native, Containers, Orchestration, IaC, CI/CD, Cloud, and more.
-- Trainer: Kubernetes, Docker, Cloud Native and others
+- Trainer: Kubernetes, Docker, Cloud Native Tools and more.
 - Speaker
 
-email: zander.havgaard(at)eficode.com
+Email: zander.havgaard(at)eficode.com
+
+GitHub: @zanderhavgaard
 
 ---
 
@@ -42,7 +44,7 @@ email: zander.havgaard(at)eficode.com
 - What is Kubernetes and why should you care?
 - Why you should be excited about Kubernetes
 - Demos!
-  - Kubernetes automation - "deployments"
+  - Kubernetes scheduling - "deployments"
   - Kubernetes network abstraction - "services"
   - GitOps with ArgoCD
   - Horizontal Cluster Auto Scaling with Karpenter
@@ -68,7 +70,7 @@ total 30 mins
 - Anyone who wants to use Kubernetes, but has heard that it is too hard.
 - Anyone who has tried Kubernetes, but found it too hard.
 
-## While I can't teach anything meaningful in the short time we have, hopefully I can inspire you to try it yourself.
+## While I can't teach you anything meaningful in the short time we have, hopefully I can inspire you to try it yourself.
 
 ---
 
@@ -156,11 +158,13 @@ So we need 3 pods!
 
 ---
 
-# Demo: Deployments
-
-We can use the `deployment` controller to help us automate the lifecycle of our applications.
+# Demo: Scheduling with Deployments
 
 We can define our desired state in manifest files -> which enables `deployments as code`!
+
+We typically schedule pods using `deployments`.
+
+`deployments` are an abstraction to help us mange the scheduling, configuration and lifecycle of applications.
 
 Let's deploy the `quotes-flask` frontend using a `deployment` manifest and then replicate it!
 
@@ -206,6 +210,9 @@ Kubernetes allows us to do declarative deployments using desired state specifica
 
 We can put all of these in a `git` repository and point a `gitops` controller at it.
 
+Now we have a central "source of truth" of the desired state.
+ArgoCD now handles the actual scheduling for us!
+
 Let's deploy `ArgoCD` and deploy the rest of the `quotes-flask` application using GitOps!
 
 ---
@@ -226,7 +233,9 @@ Let's deploy `karpenter` and scale the cluster!
 
 # Kubernetes makes (Cloud Native) scheduling easy:
 
-Using the Kubernetes control-plane we can automate the scheduling, configuration and lifecycle of our containers, networking, infrastructure and more!
+Kubernetes allows us to define the desired state of our applications and infrastructure.
+
+Based on our desired state Kubernetes helps us automate the scheduling, configuration and lifecycle of our containers, networking, infrastructure and more!
 
 Imagine doing everything I just showed you manually!
 
