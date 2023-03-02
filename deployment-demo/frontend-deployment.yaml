@@ -7,7 +7,7 @@ metadata:
   name: frontend
 spec:
   # how many identical replicas?
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: frontend
