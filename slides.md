@@ -12,9 +12,9 @@ paging: Slide %d / %d
 ```
 
 
- ___________________________
-< Scheduling should be easy >
- ---------------------------
+ ________________
+< k8s is awesome >
+ ----------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -29,7 +29,7 @@ paging: Slide %d / %d
 ## Zander Havgaard
 
 - DevOps Consultant @ Eficode Copenhagen
-  - I work with: Cloud Native, Containers, Orchestration, IaC, CI/CD, Cloud, and more.
+  - I work with: DevOps, Cloud Native, Containers, Orchestration, IaC, CI/CD, Cloud, and more.
 - Trainer: Kubernetes, Docker, Cloud Native Tools and more.
 - Speaker
 
@@ -44,17 +44,17 @@ GitHub: @zanderhavgaard
 - What is Kubernetes and why should you care?
 - Why you should be excited about Kubernetes
 - Demos!
-  - Kubernetes scheduling - "deployments"
-  - Kubernetes network abstraction - "services"
-  - GitOps with ArgoCD
-  - Horizontal Cluster Auto Scaling with Karpenter
-- How to get started learning about Kubernetes
+  - Scheduling Kubernetes Workloads - `deployments`
+  - Kubernetes Networking & Service Discovery - `services`
+  - `GitOps` with `ArgoCD`
+  - Horizontal Cluster Auto Scaling with `Karpenter`
+- How do I get started learning about Kubernetes?
 
-## Format
+## Format: Just a few slides, then demos!
 
-### Just a few slides, then demos!
+> Feel free to ask questions during the talk or afterwards!
 
-\*During the demos there will be a lot of text, you don't need to read it.
+> During the demos there will be a lot of text, you don't need to read it.
 
 <!--
 10 mins for intro slides
@@ -66,6 +66,7 @@ total 30 mins
 
 # Who is this talk for?
 
+- Anyone who is curious about Kubernetes.
 - Anyone who has not used Kubernetes yet.
 - Anyone who wants to use Kubernetes, but has heard that it is too hard.
 - Anyone who has tried Kubernetes, but found it too hard.
@@ -92,7 +93,7 @@ You don't need to know _everything_ about Kubernetes to use it!
 
 # The best thing about Kubernetes: It allows us to do things in opinionated ways!
 
-"Standing on the shoulders of giants"
+> "Standing on the shoulders of giants"
 
 The Kubernetes workflow is based on the operational experience of companies like Google, Microsoft, Netflix, Amazon, Red Hat, etc.
 
@@ -106,13 +107,19 @@ Kubernetes is also the foundation for many other Cloud Native technologies.
 
 # Cool, so how does it work?
 
-We install Kubernetes on a number of machines we want to run our containers.
+We install Kubernetes on a number of machines we want to run our `containers`.
 
 This is now our `cluster` made up of `nodes`.
 
 (node = machine/server/VM etc.)
 
 (cluster = group of nodes)
+
+Kubernetes then automates the _running_ of our containers in the cluster.
+
+---
+
+# Desired State
 
 We tell Kubernetes what our `desired state` is, and the Kubernetes control-plane will make changes to the cluster to fulfil this desired state.
 
@@ -156,9 +163,11 @@ Small "micro service" application
 
 So we need 3 pods!
 
+(Can be found at https://github.com/eficode-academy/quotes-flask)
+
 ---
 
-# Demo: Scheduling with Deployments
+# Demo: Scheduling Kubernetes Workloads
 
 We can define our desired state in manifest files -> which enables `deployments as code`!
 
@@ -179,15 +188,17 @@ Show pre-created frontend manifest
 
 ---
 
-# Demo: Services
+# Demo: Kubernetes Networking & Service Discovery
 
 We want to have redundancy and high availability for our applications.
 
 So that _when_ they break, we have redundant copies that can serve requests while the system recovers.
 
+This means we have to figure out where our applications are running int the cluster, we call this `service discovery`.
+
 This means we need to `load balance` between our `replicas`.
 
-Enter `services` which help us with load balancing and more.
+Enter `services` which help us with service discovery, load balancing and more.
 
 Let's add a `service` to our frontend!
 
@@ -209,6 +220,8 @@ Let's add a `service` to our frontend!
 Kubernetes allows us to do declarative deployments using desired state specifications (manifests).
 
 We can put all of these in a `git` repository and point a `gitops` controller at it.
+
+We will use `ArgoCD` as our gitops controller.
 
 Now we have a central "source of truth" of the desired state.
 ArgoCD now handles the actual scheduling for us!
